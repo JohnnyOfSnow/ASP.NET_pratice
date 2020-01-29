@@ -1,4 +1,6 @@
-﻿body {
+﻿
+
+body {
 
 }
 
@@ -19,9 +21,24 @@ form {
     box-sizing: border-box;
 }
 
+
+
 .button_style {
     width: 100%;
-    background-color: #4CAF50;
-    color: white;
     padding: 14px 20px;
 }
+
+    .button_style.loginBtn {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .button_style.EnterHomePageBtn {
+        background-color: #9393FF;
+        color: white;
+    }
+
+    .button_style.logoutBtn {
+        background-color: #FF95CA;
+        color: black;
+    }

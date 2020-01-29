@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="CookiePratice.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="page1.aspx.cs" Inherits="CookiePratice.login" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" type="text/css" href="MyStyle.css" />
+    <link rel="stylesheet" type="text/css" href="MyStyle.css" asp-append-version="true" />
     <title></title>
 </head>
 <body>
@@ -21,7 +21,8 @@
             <asp:TextBox ID="PasswordText" class="textbox_style" type="text" placeholder="your account..." runat="server"></asp:TextBox>
         </div>
         <div>
-            <asp:Button ID="submit" Text="submit" class="button_style" OnClick="SubmitButton_Click" runat="server" />
+            <asp:Button ID="submit" Text="submit" class="button_style loginBtn" OnClick="SubmitButton_Click" runat="server" />
+            <asp:Button ID="Enter_HomePage" Text="Enter HomePage" class="button_style EnterHomePageBtn" OnClick="EnterHomePageButton_Click" runat="server" />
         </div>
     </form>
 </body>

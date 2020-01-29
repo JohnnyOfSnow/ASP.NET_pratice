@@ -15,16 +15,16 @@ namespace CookiePratice
     {
 
         /// <summary>
-        /// form1 コントロール。
+        /// form2 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
 
         /// <summary>
-        /// Login_Hint コントロール。
+        /// Welcome_Hint コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
@@ -32,14 +32,13 @@ namespace CookiePratice
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Welcome_Hint;
 
-
         /// <summary>
-        /// submit コントロール。
+        /// logout_Btn コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button logout;
+        protected global::System.Web.UI.WebControls.Button logout_Btn;
     }
 }
