@@ -9,21 +9,28 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:Label ID="Login_Hint" Text="Please enter your account and password" runat="server"></asp:Label>
+    <div class="wrapper">
+        <div class="content">
+            <form id="form1" runat="server">
+                <div>
+                    <asp:Label ID="Login_Hint" Text="Please enter your account and password" class="label_style" runat="server"></asp:Label>
+                </div>
+                <div>
+                    <asp:Label ID="Account_Hint" Text="Name: " runat="server"></asp:Label>
+                    <br />
+                    <asp:TextBox ID="AccountText" class="textbox_style" type="text" placeholder="your name..." runat="server"></asp:TextBox>
+                    <br />
+                    <asp:Label ID="Password_Hint" Text="Password: " runat="server"></asp:Label>
+                    <br />
+                    <asp:TextBox ID="PasswordText" class="textbox_style" type="text" placeholder="your account..." runat="server"></asp:TextBox>
+                </div>
+                <div>
+                    <asp:Button ID="submit" Text="submit" class="button_style loginBtn" OnClick="SubmitButton_Click" runat="server" />
+                    <asp:Button ID="Enter_HomePage" Text="Enter HomePage" class="button_style EnterHomePageBtn" OnClick="EnterHomePageButton_Click" runat="server" />
+                </div>
+            </form>
         </div>
-        <div>
-            <asp:Label ID="Account_Hint" Text="Account: " runat="server"></asp:Label>
-            <asp:TextBox ID="AccountText" class="textbox_style" type="text" placeholder="your account..." runat="server"></asp:TextBox>
-            <br />
-            <asp:Label ID="Password_Hint" Text="Password: " runat="server"></asp:Label>
-            <asp:TextBox ID="PasswordText" class="textbox_style" type="text" placeholder="your account..." runat="server"></asp:TextBox>
-        </div>
-        <div>
-            <asp:Button ID="submit" Text="submit" class="button_style loginBtn" OnClick="SubmitButton_Click" runat="server" />
-            <asp:Button ID="Enter_HomePage" Text="Enter HomePage" class="button_style EnterHomePageBtn" OnClick="EnterHomePageButton_Click" runat="server" />
-        </div>
-    </form>
+    </div>
+    
 </body>
 </html>

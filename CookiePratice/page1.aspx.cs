@@ -19,7 +19,7 @@ namespace CookiePratice
         protected void SubmitButton_Click(object sender, EventArgs args)
         {
             // Set Cookie's data.
-            Response.Cookies["userinfo"]["account"] = AccountText.Text;
+            Response.Cookies["userinfo"]["account"] = Server.UrlEncode(AccountText.Text);
             Response.Cookies["userinfo"]["password"] = PasswordText.Text;
             Response.Cookies["userinfo"].Expires = DateTime.Now.AddDays(1);
 

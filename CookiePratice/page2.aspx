@@ -9,13 +9,17 @@
     <title></title>
 </head>
 <body>
-    <form id="form2" runat="server">
-        <div>
-             <asp:Label ID="Welcome_Hint"  runat="server"></asp:Label>
+    <div class="wrapper">
+        <div class="content">
+             <form id="form2" runat="server">
+                <div>
+                     <asp:Label ID="Welcome_Hint" class="label_style" runat="server"></asp:Label>
+                </div>
+                <div>
+                     <asp:Button ID="logout_Btn" Text="logout" class="button_style logoutBtn" OnClick="LogoutButton_Click" runat="server" />
+                </div>
+            </form>
         </div>
-        <div>
-             <asp:Button ID="logout_Btn" Text="logout" class="button_style logoutBtn" OnClick="LogoutButton_Click" runat="server" />
-        </div>
-    </form>
+    </div>
 </body>
 </html>

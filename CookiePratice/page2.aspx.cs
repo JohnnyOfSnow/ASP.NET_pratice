@@ -19,11 +19,20 @@ namespace CookiePratice
         {
             if (Request.Cookies["userinfo"] != null) // Cookies is exist.
             {
-                Welcome_Hint.Text = "Welcome " + Server.HtmlEncode(Request.Cookies["userinfo"]["account"]) + " !!!";
+                if(Request.Cookies["userinfo"]["account"] == "")
+                {
+                    Welcome_Hint.Text = "You don't login !!!";
+                    logout_Btn.Text = "Return to login page.";
+                }
+                else
+                {
+                    Welcome_Hint.Text = "Welcome " + Server.UrlDecode(Request.Cookies["userinfo"]["account"]) + " !!!";
+                }
+                
             }
             else
             {
-                Welcome_Hint.Text = "You don't login in!!!";
+                Welcome_Hint.Text = "You don't login !!!";
                 logout_Btn.Text = "Return to login page.";
             }
         }
@@ -31,7 +40,7 @@ namespace CookiePratice
         protected void LogoutButton_Click(object sender, EventArgs args)
         {
             Response.Cookies["userinfo"].Expires = DateTime.Now.AddDays(-1);
-            Response.Redirect("page1.aspx");
+            Response.Redirect("page1.aspx"); // jump to login page.
         }
     }
 }
