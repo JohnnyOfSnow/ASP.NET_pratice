@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+
+    var date = ViewBag.Date;
+    var student = ViewBag.Student;
+    var list = ViewBag.List;
+}
+
+
+@model MVCTest_ReceiveDataByGET.Models.Student
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+    <form style="margin-left: 10px;" method="get" action="/Home/Transcripts">
+        <div class="form-group">
+            <label for="stdentId_Label">學號</label>
+
+            <!--
+                Need to have a control element that it's name property defined as id.
+            -->
+            <input type="text" class="form-control" id="studentId" name="id"
+                   placeholder="請輸入學號..." aria-describedby="studentId_Help" value="@Model.id" />
+            <small id="studentId_Help" class="font-text text-muted">請輸入學號</small>
+
+        </div>
+
+        <div class="form-group">
+            <label for="name_Label">姓名</label>
+
+            <!--
+                Need to have a control element that it's name property defined as name.
+            -->
+            <input type="text" class="form-control" id="studentName" name="name"
+                   placeholder="請輸入姓名..." aria-describedby="name_Help" value="@Model.name" />
+            <small id="name_Help" class="font-text text-muted">請輸入姓名</small>
+
+        </div>
+
+        <div class="form-group">
+            <label for="score_Label">分數</label>
+
+            <!--
+                Need to have a control element that it's name property defined as score.
+            -->
+            <input type="text" class="form-control" id="studentScore" name="score"
+                   placeholder="請輸入分數..." aria-describedby="score_Help" value="@Model.score" />
+            <small id="score_Help" class="font-text text-muted">請輸入分數</small>
+
+        </div>
+
+        <!--
+            Click submit button will invoke "Transcripts" method defined in HomeController.cs.
+        -->
+        <button type="submit" class="btn btn-primary">確定</button>
+
+    </form>
