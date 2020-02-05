@@ -25,15 +25,14 @@
   * Step3: 完成Transcripts.cshtml
   * Step4: 完成HomeController.cs
   * Step5: 分別完成(總共三個專案)
-    * Step5-a: GET方法實作
-    * Step5-b: POST方法實作，並且利用id值接收資料
-    * Step5-c: POST方法實作，並且利用Model接收資料
+    * Step5-a : GET方法實作
+    * Step5-b : POST方法實作，並且利用id值接收資料
+    * Step5-c : POST方法實作，並且利用Model接收資料
 
-```
-**Step1: 完成Student類別(在Model建立Student類別，並完成下列程式碼撰寫)**
-```
 
-`## 使用程式語言:C#`
+### Step1: 完成Student類別(在Model建立Student類別，並完成下列程式碼撰寫)
+
+使用程式語言:C#
 
 ```C#
 public class Student
@@ -63,11 +62,9 @@ public class Student
 }
 ```
 
-```
-**Step2: 完成index.cshtml(在Views/Home)**
-```
+### Step2: 完成index.cshtml(在Views/Home)
 
-`## 使用程式語言:Razor、HTML5`
+使用程式語言:Razor、HTML5
 
 ```html
 @{
@@ -115,11 +112,9 @@ public class Student
 </form>
 ```
 
-```
-**Step3: 完成Transcripts.cshtml(在Views/Home)**
-```
+### Step3: 完成Transcripts.cshtml(在Views/Home)
 
-`## 使用程式語言:Razor、HTML5`
+使用程式語言:Razor、HTML5
 
 ```html
 @{ 
@@ -149,11 +144,10 @@ public class Student
 </div>
 ```
 
-```
-**Step4: 完成HomeController.cs(/Controllers)**
-```
 
-`## 使用程式語言:C#`
+### Step4: 完成HomeController.cs(/Controllers)
+
+使用程式語言:C#
 
 ```C#
 
@@ -166,11 +160,10 @@ public ActionResult Index()
 
 `## 在Index()方法，利用Student類別建立data物件，並且給予初始值，最後將物件傳至index.cshtml`
 
-```
-**Step5-a: GET方法實作(/Controllers/HomeController.cs)**
-```
 
-`## 使用程式語言:C#`
+### Step5-a : GET方法實作(/Controllers/HomeController.cs)
+
+使用程式語言:C#
 
 ```C#
 /**
@@ -187,13 +180,13 @@ public ActionResult Transcripts(string id, string name, int score)
 }    
 ```
 
+`注意這裡的(string id, string name, int score) 三個參數要有對應的表單控制元件name值`
 
 
-```
-**Step5-b: POST方法實作，並且利用id值接收資料(/Controllers/HomeController.cs)**
-```
 
-`## 使用程式語言:C#`
+### Step5-b : POST方法實作，並且利用id值接收資料(/Controllers/HomeController.cs)
+
+使用程式語言:C#
 
 ```C#
 /**
@@ -214,11 +207,14 @@ public ActionResult Transcripts(FormCollection post)
 }    
 ```
 
-```
-**Step5-c: POST方法實作，並且利用Model接收資料(/Controllers/HomeController.cs)**
-```
+`因為用POST方法，所以在方法的上面標註[HttpPost]`
 
-`## 使用程式語言:C#`
+`這裡我們用控制元件的id傳資料，所以id,name,score三個值要有對應的控制元件id`
+
+
+### Step5-c : POST方法實作，並且利用Model接收資料(/Controllers/HomeController.cs)
+
+使用程式語言:C#
 
 ```C#
 
@@ -239,4 +235,7 @@ public ActionResult Transcripts(Student model)
 }     
 ```
 
+`因為用POST方法，所以在方法的上面標註[HttpPost]`
+
+`這裡我們用Model接收資料,前端的控制元件value需要有 @model.id, @model.name, @model.score對應`
 
