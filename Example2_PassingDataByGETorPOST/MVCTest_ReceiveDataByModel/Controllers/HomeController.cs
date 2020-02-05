@@ -18,7 +18,7 @@ namespace MVCTest_ReceiveDataByModel.Controllers
         }
 
         /**
-         *  To receive data by Model, frontend's control element of value should have @Model.(...). 
+         *  To receive data by Model, frontend's control element of name property should be corresponse of the method's variable
          * 
          *  If you use POST method passing data, you should add [HttpPost] in the method header's upper
          */
@@ -26,9 +26,9 @@ namespace MVCTest_ReceiveDataByModel.Controllers
         [HttpPost]
         public ActionResult Transcripts(Student model)
         {
-            string id = model.id; // frontend control element  <input type="text"value="@Model.id" /> 
-            string name = model.name; // frontend control element  <input type="text"value="@Model.name" /> 
-            int score = model.score; // frontend control element  <input type="text"value="@Model.score" /> 
+            string id = model.id; // frontend control element  <input type="text"  name="id" value="@Model.id" /> 
+            string name = model.name; // frontend control element  <input type="text name="name"value="@Model.name" /> 
+            int score = model.score; // frontend control element  <input type="text"name="score" value="@Model.score" /> 
             Student data = new Student(id, name, score);
             return View(data); // Go to Transcripts.cshtml
         }

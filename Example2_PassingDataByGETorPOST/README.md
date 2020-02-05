@@ -2,13 +2,17 @@
 
 ***
 ## Example2: ASP.NET MVC Receive data by GET or POST
-`## 練習2:試著用GET或POST的方法，將前端的表單資料送到後端`
+## 練習2:試著用GET或POST的方法，將前端的表單資料送到後端
+***
+
+![image](https://github.com/JohnnyOfSnow/ASP.NET_pratice/blob/master/Example2_PassingDataByGETorPOST/image/irn7p-jwnhj.gif)
 
 * **練習內容**
   * 1.練習用GET方法接收前端傳來的表單資料
   * 2.練習用POST方法接收前端傳來的表單資料
   	* a.利用表單控制元件的id取得資料
   	* b.利用表單控制元件的value取得資料
+
 
 * **練習的專案架構**
   * `Controllers`
@@ -18,6 +22,7 @@
   * `View`
   	* index.cshtml (一開始使用者看到的表單頁面)
   	* Transcripts.cshtml (經由GET POST方法接收資料後，將資料呈現出來的頁面)
+
 
 * **實作步驟**
   * Step1: 完成Student類別
@@ -30,6 +35,7 @@
     * Step5-c : POST方法實作，並且利用Model接收資料
 
 
+***
 ### Step1: 完成Student類別(在Model建立Student類別，並完成下列程式碼撰寫)
 
 使用程式語言:C#
@@ -62,6 +68,7 @@ public class Student
 }
 ```
 
+***
 ### Step2: 完成index.cshtml(在Views/Home)
 
 使用程式語言:Razor、HTML5
@@ -112,6 +119,7 @@ public class Student
 </form>
 ```
 
+***
 ### Step3: 完成Transcripts.cshtml(在Views/Home)
 
 使用程式語言:Razor、HTML5
@@ -144,7 +152,7 @@ public class Student
 </div>
 ```
 
-
+***
 ### Step4: 完成HomeController.cs(/Controllers)
 
 使用程式語言:C#
@@ -160,7 +168,7 @@ public ActionResult Index()
 
 `## 在Index()方法，利用Student類別建立data物件，並且給予初始值，最後將物件傳至index.cshtml`
 
-
+***
 ### Step5-a : GET方法實作(/Controllers/HomeController.cs)
 
 使用程式語言:C#
@@ -183,7 +191,7 @@ public ActionResult Transcripts(string id, string name, int score)
 `注意這裡的(string id, string name, int score) 三個參數要有對應的表單控制元件name值`
 
 
-
+***
 ### Step5-b : POST方法實作，並且利用id值接收資料(/Controllers/HomeController.cs)
 
 使用程式語言:C#
@@ -211,7 +219,7 @@ public ActionResult Transcripts(FormCollection post)
 
 `這裡我們用控制元件的id傳資料，所以id,name,score三個值要有對應的控制元件id`
 
-
+***
 ### Step5-c : POST方法實作，並且利用Model接收資料(/Controllers/HomeController.cs)
 
 使用程式語言:C#
