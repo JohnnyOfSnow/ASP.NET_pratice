@@ -11,11 +11,11 @@
   	* b.利用表單控制元件的value取得資料
 
 * **練習的專案架構**
-  * `**Controllers**`
+  * `Controllers`
   	* HomeController.cs (將資料傳到表單，定義GET,POST如何接收資料的方法)
-  * `**Model**`
+  * `Model`
   	* Student.cs (定義Student類別，裡面有id,name,score共三個屬性，初始與帶有三個參數的constructor，以及ToStrung方法)
-  * `**View**`
+  * `View`
   	* index.cshtml (一開始使用者看到的表單頁面)
   	* Transcripts.cshtml (經由GET POST方法接收資料後，將資料呈現出來的頁面)
 
@@ -24,12 +24,14 @@
   * Step2: 完成index.cshtml
   * Step3: 完成Transcripts.cshtml
   * Step4: 完成HomeController.cs
-  * Step5:
+  * Step5: 分別完成(總共三個專案)
     * Step5-a: GET方法實作
     * Step5-b: POST方法實作，並且利用id值接收資料
     * Step5-c: POST方法實作，並且利用Model接收資料
 
-Step1: 完成Student類別(在Model建立Student類別，並完成下列程式碼撰寫)
+```
+**Step1: 完成Student類別(在Model建立Student類別，並完成下列程式碼撰寫)**
+```
 
 `## 使用程式語言:C#`
 
@@ -60,7 +62,10 @@ public class Student
     }
 }
 ```
-Step2: 完成index.cshtml(在Views/Home)
+
+```
+**Step2: 完成index.cshtml(在Views/Home)**
+```
 
 `## 使用程式語言:Razor、HTML5`
 
@@ -110,7 +115,9 @@ Step2: 完成index.cshtml(在Views/Home)
 </form>
 ```
 
-Step3: 完成Transcripts.cshtml(在Views/Home)
+```
+**Step3: 完成Transcripts.cshtml(在Views/Home)**
+```
 
 `## 使用程式語言:Razor、HTML5`
 
@@ -142,7 +149,9 @@ Step3: 完成Transcripts.cshtml(在Views/Home)
 </div>
 ```
 
-Step4: 完成HomeController.cs(/Controllers)
+```
+**Step4: 完成HomeController.cs(/Controllers)**
+```
 
 `## 使用程式語言:C#`
 
@@ -157,8 +166,11 @@ public ActionResult Index()
 
 `## 在Index()方法，利用Student類別建立data物件，並且給予初始值，最後將物件傳至index.cshtml`
 
+```
+**Step5-a: GET方法實作(/Controllers/HomeController.cs)**
+```
 
-Step5-a: GET方法實作
+`## 使用程式語言:C#`
 
 ```C#
 /**
@@ -175,8 +187,13 @@ public ActionResult Transcripts(string id, string name, int score)
 }    
 ```
 
-Step5-b: POST方法實作，並且利用id值接收資料
 
+
+```
+**Step5-b: POST方法實作，並且利用id值接收資料(/Controllers/HomeController.cs)**
+```
+
+`## 使用程式語言:C#`
 
 ```C#
 /**
@@ -197,7 +214,11 @@ public ActionResult Transcripts(FormCollection post)
 }    
 ```
 
-Step5-c: POST方法實作，並且利用Model接收資料
+```
+**Step5-c: POST方法實作，並且利用Model接收資料(/Controllers/HomeController.cs)**
+```
+
+`## 使用程式語言:C#`
 
 ```C#
 
@@ -217,3 +238,5 @@ public ActionResult Transcripts(Student model)
     return View(data); // Go to Transcripts.cshtml
 }     
 ```
+
+
