@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+
+    var success = ViewBag.Success;
+}
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+
+
+<label>@success</label>
