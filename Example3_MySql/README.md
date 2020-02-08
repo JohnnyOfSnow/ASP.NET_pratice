@@ -93,7 +93,7 @@ using System.Data;
 ``至此，這個專案便完成撰寫資料庫程式的環境，緊接著，我們要練習用程式的方式將資料寫進資料庫中``
 
 ***
-###2.練習連接資料庫，利用程式將資料加入資料庫
+### 2.練習連接資料庫，利用程式將資料加入資料庫
 *** 
 
 HomeController.cs
@@ -103,50 +103,22 @@ HomeController.cs
 ```C#
 public class HomeController : Controller
 {
-    /**
-     *  Though it is public on website, so I have to eliminate the password.
-     *  
-     *  If you try to build this project, you should give the password value that you set in database. 
-     * 
-     */
     string connectString = "server=127.0.0.1;port=3306;user id=root;" +
                             "password=****;database=mvctest;charset=utf8;";
     MySqlConnection conn = new MySqlConnection();
     public ActionResult Index()
     {
         conn.ConnectionString = connectString;
-        if(conn.State != ConnectionState.Open) // If database is connecting, you shouldn't connect it.
+        if(conn.State != ConnectionState.Open) 
             conn.Open();
         string sql = @"INSERT INTO `city` (`Id`, `City`) VALUES
                        ('0', '基隆市'),
                        ('1', '台北市'),
                        ('2', '新北市'),
-                       ('3', '桃園市'),
-                       ('4', '新竹市'),
-                       ('5', '新竹縣'),
-                       ('6', '宜蘭縣'),
-                       ('7', '苗栗縣'),
-                       ('8', '台中市'),
-                       ('9', '彰化縣'),
-                       ('A', '南投縣'),
-                       ('B', '雲林縣'),
-                       ('C', '嘉義市'),
-                       ('D', '嘉義縣'),
-                       ('E', '台南市'),
-                       ('F', '高雄市'),
-                       ('G', '屏東縣'),
-                       ('H', '澎湖縣'),
-                       ('I', '花蓮縣'),
-                       ('J', '台東縣'),
-                       ('K', '金門縣'),
                        ('L', '連江縣');
 ";
         MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-        /**
-         *  Insert, Revise, Delete data in database,
-         *  when it is fail the "ExecuteNonQuery()" will return 0.
-         */
         int index = cmd.ExecuteNonQuery();  
         bool success = false;
         if (index > 0)
@@ -200,13 +172,116 @@ MySqlCommand cmd = new MySqlCommand(sql, conn);
 
 ```C#
 int index = cmd.ExecuteNonQuery();  
-    bool success = false;
-    if (index > 0)
-        success = true;
-    else
-        success = false;
-    ViewBag.Success = success; // Show the result in index.cshtml.
-    conn.Clone(); // Close the database connection.
-    return View();
 
+bool success = false;
+if (index > 0)
+    success = true;
+else
+    success = false;
+ViewBag.Success = success; // Show the result in index.cshtml.
+conn.Clone(); // Close the database connection.
+return View();
+```
+
+***
+### 3.練習連接資料庫，利用程式讀取資料庫裡的資料
+*** 
+
+HomeController.cs
+
+使用程式語言:C#
+
+```C#
+public class HomeController : Controller
+{
+    string connectString = "server=127.0.0.1;port=3306;user id=root;password=****;database=mvctest; charset = utf8;";
+    MySqlConnection conn = new MySqlConnection();
+    public ActionResult Index()
+    {
+        conn.ConnectionString = connectString;
+        string sql = @" SELECT `Id`, `City` FROM `city`"; // @" SELECT `欄位1`, `欄位2` FROM `表格名稱`"
+
+        DataTable dt = new DataTable(); // Prepare a DataTable to receive a table from database.
+        MySqlDataAdapter adapter = new MySqlDataAdapter(sql, conn); // MySqlDataAdapter can handle connecting and disconnecting
+        adapter.Fill(dt);
+
+        ViewBag.DT = dt; // pass object(dt) to frontend(index.cshtml).
+        return View();
+    }    
+}
+```
+
+**一一講解上述程式碼**
+
+``和寫資料到資料庫一樣，讀資料也要設定好連接資料庫的內容``
+
+```C#
+string connectString = "server=127.0.0.1;port=3306;user id=root;password=****;database=mvctest; charset = utf8;";
+MySqlConnection conn = new MySqlConnection();
+```
+
+``取資料的sql語法: SELECT `欄位1`, `欄位2` FROM `表格名稱` ``
+
+``用DataTable產生的物件dt，準備接受資料庫傳來的表格``
+
+``MySqlDataAdapter能夠連接資料庫，之後會關閉資料庫，若後面要用MySqlCommand，還是要檢查資 料庫是否已連線，然後才用conn.Open();``
+
+``adapter.Fill(準備接收表格的物件)``
+
+```C#
+ conn.ConnectionString = connectString;
+string sql = @" SELECT `Id`, `City` FROM `city`"; // @" SELECT `欄位1`, `欄位2` FROM `表格名稱`"
+
+DataTable dt = new DataTable(); // Prepare a DataTable to receive a table from database.
+MySqlDataAdapter adapter = new MySqlDataAdapter(sql, conn); // MySqlDataAdapter can handle connecting and disconnecting
+adapter.Fill(dt);
+
+ViewBag.DT = dt; // pass object(dt) to frontend(index.cshtml).
+```
+
+index.cshtml
+
+使用程式語言:Razor、HTML5
+
+```html
+@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+
+    var dt = ViewBag.DT;
+}
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+
+<div>
+    @for(int i = 0; i < dt.Rows.Count; i++)
+    {
+        @Html.Raw($"代號: {dt.Rows[i]["id"]}, 名稱: {dt.Rows[i]["City"]}")
+        <br />
+    }
+</div>
+
+```
+
+**一一講解上述程式碼**
+
+``透過ViewBag傳到前端的資料庫表格dt，取用id與City資料的方式:``
+
+``取用id-->{dt.Rows[i]["id"]}``
+
+``取用City-->{dt.Rows[i]["City"]}``
+
+``使用for迴圈，改變dt.Rows的第一個中括號的值，將每一筆資料印出來``
+
+
+```html
+<div>
+    @for(int i = 0; i < dt.Rows.Count; i++)
+    {
+        @Html.Raw($"代號: {dt.Rows[i]["id"]}, 名稱: {dt.Rows[i]["City"]}")
+        <br />
+    }
+</div>
 ```
