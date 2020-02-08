@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+
+    var date = ViewBag.Date;
+    var student = ViewBag.Student;
+    var list = ViewBag.list;
+}
+
+@model MVCTest_ModelPassingData.Models.Student
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+<form style="margin-left: 10px;">
+    <div class="form-group">
+        <label for="studentId">學號</label>
+        <input type="text" class="form-control" id="studentId_Text" placeholder="請輸入學號" value="@Model.id" />
+        <small id="studentId_Help" class="form-text text-muted">請輸入學號</small>
+    </div>
+
+    <div class="form-group">
+        <label for="name">姓名</label>
+        <input type="text" class="form-control" id="name_Text" placeholder="請輸入姓名" value="@Model.name" />
+        <small id="name_Help" class="form-text text-muted">請輸入姓名</small>
+    </div>
+
+    <div class="form-group">
+        <label for="score">成績</label>
+        <input type="text" class="form-control" id="score_Text" placeholder="請輸入成績" value="@Model.score" />
+        <small id="score_Help" class="form-text text-muted">請輸入成績</small>
+    </div>
+</form>
