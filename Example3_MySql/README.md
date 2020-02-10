@@ -187,7 +187,7 @@ return View();
 ***
 ### 3.練習連接資料庫，利用程式讀取資料庫裡的資料
 
-### 3.a DataTable
+### 3 a. DataTable
 *** 
 
 **HomeController.cs**
@@ -292,7 +292,7 @@ ViewBag.DT = dt; // pass object(dt) to frontend(index.cshtml).
 ***
 ### 3.練習連接資料庫，利用程式讀取資料庫裡的資料
 
-### 3.b DataReader
+### 3 b. DataReader
 *** 
 
 **HomeController.cs**
