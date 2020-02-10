@@ -9,7 +9,8 @@
   * 1.建立能夠撰寫資料庫程式的環境
   * 2.練習連接資料庫，利用程式將資料加入資料庫
   * 3.練習連接資料庫，利用程式讀取資料庫裡的資料
-
+    * a. DataTable
+    * b. DataReader
 
 ***
 ### 1.建立能夠撰寫資料庫程式的環境
@@ -81,7 +82,7 @@
 
 **★3.專案要有使用MySQL的using 陳述式**
 
-HomeController.cs
+**HomeController.cs**
 
 使用程式語言:C#
 
@@ -96,7 +97,7 @@ using System.Data;
 ### 2.練習連接資料庫，利用程式將資料加入資料庫
 *** 
 
-HomeController.cs
+**HomeController.cs**
 
 使用程式語言:C#
 
@@ -185,9 +186,11 @@ return View();
 
 ***
 ### 3.練習連接資料庫，利用程式讀取資料庫裡的資料
+
+### 3.a DataTable
 *** 
 
-HomeController.cs
+**HomeController.cs**
 
 使用程式語言:C#
 
@@ -239,7 +242,7 @@ adapter.Fill(dt);
 ViewBag.DT = dt; // pass object(dt) to frontend(index.cshtml).
 ```
 
-index.cshtml
+**index.cshtml**
 
 使用程式語言:Razor、HTML5
 
@@ -285,3 +288,128 @@ index.cshtml
     }
 </div>
 ```
+
+***
+### 3.練習連接資料庫，利用程式讀取資料庫裡的資料
+
+### 3.b DataReader
+*** 
+
+**HomeController.cs**
+
+使用程式語言:C#
+
+```C#
+public class HomeController : Controller
+{
+    string connectString = "server=127.0.0.1;port=3306;user id=root;password=****;database=mvctest;charset=utf8;";
+    MySqlConnection conn = new MySqlConnection();
+    public ActionResult Index()
+    {
+        conn.ConnectionString = connectString;
+        string sql = @" SELECT `Id`, `City` FROM `city`"; 
+        MySqlCommand cmd = new MySqlCommand(sql, conn);
+        List<City> list = new List<City>();
+
+        if (conn.State != ConnectionState.Open) 
+            conn.Open();
+
+        using (MySqlDataReader dr = cmd.ExecuteReader()) {
+            while (dr.Read())
+            {
+                City city = new City(); // Defined in Model folder. 
+                city.CityId = dr["Id"].ToString();
+                city.CityName = dr["City"].ToString();
+                list.Add(city);
+            }
+        }
+
+        if (conn.State != ConnectionState.Closed) // Remember to disconnection database.
+            conn.Close();
+
+        ViewBag.List = list; // Send list(database's data) to frontend.
+        return View();
+    }
+}
+```
+
+**一一講解上述程式碼**
+
+``和寫資料到資料庫一樣，讀資料也要設定好連接資料庫的內容``
+
+```C#
+string connectString = "server=127.0.0.1;port=3306;user id=root;password=****;database=mvctest; charset = utf8;";
+MySqlConnection conn = new MySqlConnection();
+```
+
+``取資料的sql語法: SELECT `欄位1`, `欄位2` FROM `表格名稱` ``
+
+``這裡我們要用DataReader接收資料，需要有MySqlCommand物件``
+
+``在3.a練習過的MySqlDataAdapter會自動處理連線和斷線的事，但用MySqlCommand要自己處理，故會有conn.State != ConnectionState.Open 與 conn.State != ConnectionState.Closed的判斷式``
+
+```C#
+conn.ConnectionString = connectString;
+string sql = @" SELECT `Id`, `City` FROM `city`"; 
+MySqlCommand cmd = new MySqlCommand(sql, conn);
+List<City> list = new List<City>();
+
+if (conn.State != ConnectionState.Open) 
+    conn.Open();
+```
+
+``using 陳述式在執行完之後會歸還記憶體空間``
+
+``MySqlDataReader dr = cmd.ExecuteReader()，即是剛剛說的DataReader接收資料，需要有MySqlCommand物件``
+
+``using 陳述式在執行完之後會歸還記憶體空間``
+
+``在Model定義了City類別，利用物件.屬性的方式接收MySqlDataReader物件裡的資料，最後加入 List<City> list = new List<City>(); 創建的list裡面``
+
+```C#
+using (MySqlDataReader dr = cmd.ExecuteReader()) {
+    while (dr.Read())
+    {
+        City city = new City(); // Defined in Model folder. 
+        city.CityId = dr["Id"].ToString();
+        city.CityName = dr["City"].ToString();
+        list.Add(city);
+    }
+}
+```
+
+**index.cshtml**
+
+使用程式語言:Razor、HTML5
+
+
+```html
+@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+
+    var list = ViewBag.List;
+}
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+
+<div>
+    @for(int i = 0; i < list.Count; i++)
+    {
+        @Html.Raw($"代號: {list[i].CityId}, 名稱: {list[i].CityName}")
+        <br />
+    }
+</div>
+```
+
+``在3.a DataTable中，我們用dt.Rows[i]["id"] 得到城市id，這裡我們將城市的資料加入list中，而list的每個內容是物件的關係，因而會以list[i].CityId的方式取值``
+
+| i | CityId | CityName |
+| ------ | ------ | ------ |
+|  0  | 0 | 基隆市 |
+|  1  | 1 | 台北市 |
+|  2  | 2 | 新北市 |
+| ... | ... | ... |
+| 22 | L | 連江縣 |

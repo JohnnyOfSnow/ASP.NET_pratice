@@ -18,13 +18,13 @@
     * index.aspx (給使用者輸入年齡並送出的頁面)
     * index.aspx.cs (要寫建立Session 方法，然後將結果用Response寫出)
 
-  * `Cookie`
-    * `Page1`
-    	* page1.aspx (給使用者看的登入畫面)
-      * page1.aspx.cs (要寫建立Cookie 方法，並跳轉到Page2)
-    * `Page2(顯示有沒有登入的畫面)`
-    	* page2.aspx (顯示有沒有登入的畫面)
-      * page2.aspx.cs (將Cookie的內容印出來，還要能跳轉到Page1)
+* `Cookie`
+  * `Page1`
+  	* page1.aspx (給使用者看的登入畫面)
+    * page1.aspx.cs (要寫建立Cookie 方法，並跳轉到Page2)
+  * `Page2(顯示有沒有登入的畫面)`
+  	* page2.aspx (顯示有沒有登入的畫面)
+    * page2.aspx.cs (將Cookie的內容印出來，還要能跳轉到Page1)
 
 ***
 ### 1.練習用Session留存使用者造訪網站時的資料
