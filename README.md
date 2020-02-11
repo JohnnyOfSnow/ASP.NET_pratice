@@ -12,7 +12,7 @@
   * `練習3: 試著用支援MySQL很高的MariaDB，寫出能讀資料庫或寫入資料庫的程式`
 * **Example 4: JSON's serialization and deserialization in C#.**
   * `練習4: 練習C#裡將JSON序列化或反序列化的一些方法` 
-* **Example 5: Ajax(Asynchronous JavaScript and XML) **
+* **Example 5: Ajax(Asynchronous JavaScript and XML)**
   * `練習5: 練習用Ajax，回應使用者的操作` 
 
 ***
@@ -27,7 +27,7 @@
 ## 學習參考網站
 * **ASP.NET Web Form 入門30天**
   * https://ithelp.ithome.com.tw/users/20120056/ironman/2281
-* **ASP.NET MVC網頁程式介紹 **
+* **ASP.NET MVC網頁程式介紹**
   * https://ithelp.ithome.com.tw/users/20105694/ironman/1329
 
 
