@@ -1,5 +1,43 @@
 ﻿@{
     ViewBag.Title = "Home Page";
     Layout = null;
+    var cityList = ViewBag.CityList;
 }
 
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+    <form style="margin-left:10px;">
+        <h1>請輸入使用者資料</h1>
+        <div class="form-group">
+            <label for="inputAccount">帳號</label>
+            <input type="text" class="form-control" id="account" name="account" placeholder="請輸入帳號" value="" />
+            <small id="accountHelp" class="form-text text-muted">請輸入英數字</small>
+        </div>
+        <div class="form-group">
+            <label for="inputNewPassword">新的密碼</label>
+            <input type="text" class="form-control" id="newPassword" name="newPassword" placeholder="請輸入新密碼" value="" />
+            <small id="newPasswordHelp" class="form-text text-muted">請輸入英數字</small>
+        </div>
+        <div class="form-group">
+            <label for="inputNewPassword">再次確認</label>
+            <input type="text" class="form-control" id="newPassword2" name="newPassword2" placeholder="再輸入一次密碼" value="" />    
+        </div>
+
+        <div class="form-group">
+            <label for="address">地址</label>
+            <select id="city" name="city">
+                <option value="">全部</option>
+                @for(int i = 0; i < cityList.Count; i++)
+                {
+                    <option value="@cityList[i].Id"@cityList[i].CityName></option>
+                }
+            </select>
+            <select id="village" name="village">
+                <option value="">請選擇縣市</option>
+            </select>
+            <input type="text" class="form-control" id="address" name="address" placeholder="請輸入地址" value="" />
+        </div>
+        <button type="submit" class="btn btn-primary">確定</button>
+        <button type="reset" class="btn btn-warning">清除</button>
+    </form>

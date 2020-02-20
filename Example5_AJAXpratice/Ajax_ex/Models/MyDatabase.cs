@@ -17,12 +17,56 @@ namespace Ajax_ex.Models
         {
             try
             {
-                bool isConnect = Connect();
-                if (isConnect)
-                {
+                Connect();                   
+                string sql = @" SELECT `Id` `CityName` FROM `City`";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                List<City> list = new List<City>();
 
+                using (MySqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        City city = new City();
+                        city.Id = dr["Id"].ToString();
+                        city.CityName = dr["CityName"].ToString();
+                        list.Add(city);
+                    }
                 }
+                return list;
+                
+            }catch(Exception ex)
+            {
+                string error = ex.ToString();
                 return null;
+            }
+            finally
+            {
+                Disconnect();
+
+            }
+        }
+
+        public List<Village> GetVillageList(string id)
+        {
+            try
+            {
+                Connect();
+                string sql = @" SELECT `VillageId` `VillageName` FROM `Village`";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                List<Village> list = new List<Village>();
+
+                using (MySqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        Village data = new Village();
+                        data.VillageId = dr["VillageId"].ToString();
+                        data.VillageName = dr["VillageName"].ToString();
+                        list.Add(data);
+                    }
+                }
+                return list;
+
             }catch(Exception ex)
             {
                 string error = ex.ToString();
@@ -34,7 +78,8 @@ namespace Ajax_ex.Models
             }
         }
 
-        public bool Connect()
+
+        public void Connect()
         {
             connectString = "server=127.0.0.1;port=3306;user id=root;password=****;database=nvctest;charset=utf8;";
 
@@ -42,11 +87,7 @@ namespace Ajax_ex.Models
 
             conn.ConnectionString = connectString;
             if (conn.State != ConnectionState.Open)
-            {
                 conn.Open();
-                return true;
-            }
-            return false;
         }
 
         public void Disconnect()
