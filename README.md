@@ -2,17 +2,17 @@
 
 ***
 ## 學習目錄
-* **Example 0: Familiar with Visual Studio 2019.**
+* **[Example 0: Familiar with Visual Studio 2019.](https://github.com/JohnnyOfSnow/ASP.NET_pratice/tree/master/Example0_Prepare)**
   * `練習0: 熟悉Visual Studio 2019的環境，然後建置專案、練習物件導向程式`
-* **Example 1: Use Session or Cookie to save the user's data.**
+* **[Example 1: Use Session or Cookie to save the user's data.](https://github.com/JohnnyOfSnow/ASP.NET_pratice/tree/master/Example1_CookieAndSession)**
   * `練習1: 練習用Session Cookie留存使用者造訪網站時的資料`
-* **Example 2: ASP.NET MVC Receive data by GET or POST.**
+* **[Example 2: ASP.NET MVC Receive data by GET or POST.](https://github.com/JohnnyOfSnow/ASP.NET_pratice/tree/master/Example2_PassingDataByGETorPOST)**
   * `練習2: 試著用GET或POST的方法，將前端的表單資料送到後端`
-* **Example 3: MySQL database(use MariaDB).**
+* **[Example 3: MySQL database(use MariaDB).](https://github.com/JohnnyOfSnow/ASP.NET_pratice/tree/master/Example3_MySql)**
   * `練習3: 試著用支援MySQL很高的MariaDB，寫出能讀資料庫或寫入資料庫的程式`
-* **Example 4: JSON's serialization and deserialization in C#.**
+* **[Example 4: JSON's serialization and deserialization in C#.](https://github.com/JohnnyOfSnow/ASP.NET_pratice/tree/master/Example4_JSONPratice)**
   * `練習4: 練習C#裡將JSON序列化或反序列化的一些方法` 
-* **Example 5: Ajax(Asynchronous JavaScript and XML)**
+* **[Example 5: Ajax(Asynchronous JavaScript and XML)](https://github.com/JohnnyOfSnow/ASP.NET_pratice/tree/master/Example5_AJAXpratice)**
   * `練習5: 練習用Ajax，回應使用者的操作` 
 
 ***
