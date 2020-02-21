@@ -30,7 +30,7 @@
                 <option value="">全部</option>
                 @for(int i = 0; i < cityList.Count; i++)
                 {
-                    <option value="@cityList[i].Id"@cityList[i].CityName></option>
+                    <option value="@cityList[i].Id">@cityList[i].CityName</option>
                 }
             </select>
             <select id="village" name="village">
@@ -41,3 +41,36 @@
         <button type="submit" class="btn btn-primary">確定</button>
         <button type="reset" class="btn btn-warning">清除</button>
     </form>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $("#city").change(function(){
+            var value = $("#city").val();
+            console.log(city);
+            $.ajax({
+                type: "Post",
+                url: "../Home/Village?id=" + value,
+                data: '{}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                success: function (data) {
+                    $("#village").empty();
+                    if (data == "") {
+                        $("#village").append("<option value=''>請選擇縣市</option>");
+                    } else {
+                        var json = JSON.parse(data);
+                        $("#village").append("<option value=''>請選擇鄉鎮市</option>")
+                        for (i = 0; i < json.length; i++){
+                            $("#village").append("<option value = '" + json[i].VillageId + "'>" + json[i].VillageName + "</option>");
+                        }
+                    }
+                },
+                failure: function (errorMsg) {
+                    $("#village").empty();
+                    $("#village").append("<option value=''>請選擇縣市</option>");
+                }
+            })
+        })
+    </script>
+    

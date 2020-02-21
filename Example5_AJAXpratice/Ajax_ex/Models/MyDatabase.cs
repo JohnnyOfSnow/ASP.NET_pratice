@@ -18,7 +18,7 @@ namespace Ajax_ex.Models
             try
             {
                 Connect();                   
-                string sql = @" SELECT `Id` `CityName` FROM `City`";
+                string sql = @" SELECT `Id`, `CityName` FROM `city`";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 List<City> list = new List<City>();
 
@@ -51,18 +51,23 @@ namespace Ajax_ex.Models
             try
             {
                 Connect();
-                string sql = @" SELECT `VillageId` `VillageName` FROM `Village`";
+                string sql = @" SELECT `CityId`,`VillageId`, `VillageName` FROM `Village`";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 List<Village> list = new List<Village>();
+
+                int villageCount = 0;
 
                 using (MySqlDataReader dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
                     {
-                        Village data = new Village();
-                        data.VillageId = dr["VillageId"].ToString();
-                        data.VillageName = dr["VillageName"].ToString();
-                        list.Add(data);
+                        if(id.Equals(dr["CityId"].ToString()))
+                        {
+                            Village data = new Village();
+                            data.VillageId = dr["VillageId"].ToString();
+                            data.VillageName = dr["VillageName"].ToString();
+                            list.Add(data);
+                        }       
                     }
                 }
                 return list;
@@ -81,7 +86,7 @@ namespace Ajax_ex.Models
 
         public void Connect()
         {
-            connectString = "server=127.0.0.1;port=3306;user id=root;password=****;database=nvctest;charset=utf8;";
+            connectString = "server=127.0.0.1;port=3306;user id=root;password=****;database=mvctest;charset=utf8;";
 
             conn = new MySqlConnection();
 
