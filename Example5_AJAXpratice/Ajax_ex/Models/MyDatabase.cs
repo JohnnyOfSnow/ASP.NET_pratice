@@ -55,8 +55,6 @@ namespace Ajax_ex.Models
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 List<Village> list = new List<Village>();
 
-                int villageCount = 0;
-
                 using (MySqlDataReader dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
