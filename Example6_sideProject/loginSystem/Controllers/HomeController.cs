@@ -24,6 +24,7 @@ namespace loginSystem.Controllers
         [HttpPost]
         public ActionResult Index(userData data)
         {
+            // wrong data judgement
            if(string.IsNullOrWhiteSpace(data.password1) || data.password1 != data.password2)
            {
                 List<City> cityList = db.getCityList();
@@ -37,10 +38,11 @@ namespace loginSystem.Controllers
 
 
             }
-            else
+            else 
             {
                 if (db.AddUserData(data))
                 {
+                    //return RedirectToAction("Login");
                     Response.Redirect("~/Home/Login");
                     return new EmptyResult();
                 }
@@ -50,6 +52,27 @@ namespace loginSystem.Controllers
                     return View(data);
                 }
             }
+        }
+        
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(FormCollection post)
+        {
+            string account = post["account"];
+            string password = post["password"];
+
+            if(db.CheckUserData(account, password))
+            {
+                ViewBag.Msg = "登入成功";
+            }
+            else{
+                ViewBag.Msg = "登入失敗";
+            }
+            return View();
         }
 
         [HttpPost]

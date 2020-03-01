@@ -116,8 +116,38 @@ namespace loginSystem.Models
             }
         }
 
+        public bool CheckUserData(string account, string password)
+        {
+            try
+            {
+                Connect();
+                string sql = "SELECT 1 FROM `userdata` WHERE `account` = '" + account + 
+                    "'AND `password` = `" + password + "';";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                using (MySqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        return true;
+                    }
+                }
+                return false;
+
+            }catch(Exception ex)
+            {
+                string errorMsg = ex.ToString();
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
+
         public void Connect() {
-        connectString = "server=127.0.0.1;port=3306;user id=root;password=****;database=mvctest;charset=utf8;";
+        connectString = "server=127.0.0.1;port=3306;user id=root;password=910053johnny;database=mvctest;charset=utf8;";
         conn = new MySqlConnection();
 
         conn.ConnectionString = connectString;
