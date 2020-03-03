@@ -121,10 +121,11 @@ namespace loginSystem.Models
             try
             {
                 Connect();
-                string sql = "SELECT 1 FROM `userdata` WHERE `account` = '" + account + 
-                    "'AND `password` = `" + password + "';";
+                string sql = "SELECT 1 FROM `userdata` WHERE `account` = @account AND `password` = @password;";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.Add("@account", MySqlDbType.VarChar).Value = account;
+                cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
 
                 using (MySqlDataReader dr = cmd.ExecuteReader())
                 {

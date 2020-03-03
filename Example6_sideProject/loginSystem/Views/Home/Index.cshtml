@@ -60,10 +60,14 @@
     </div>
     <button type="submit" class="btn btn-primary">確定</button>
     <button type="reset" class="btn btn-warning">清除</button>
+    <button type="button" class="btn btn-sm" onclick="login()">登入</button>
 </form>
 
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script>
+    function login() {
+        location.href = "/Home/Login";
+    }
     $("#city").change(function () {
         var value = $("#city").val();
         console.log(value);

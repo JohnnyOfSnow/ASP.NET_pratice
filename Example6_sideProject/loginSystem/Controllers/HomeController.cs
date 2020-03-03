@@ -59,6 +59,11 @@ namespace loginSystem.Controllers
             return View();
         }
 
+        public ActionResult Home()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Login(FormCollection post)
         {
@@ -68,6 +73,9 @@ namespace loginSystem.Controllers
             if(db.CheckUserData(account, password))
             {
                 ViewBag.Msg = "登入成功";
+                Session["account"] = account; // Create a session
+                Response.Redirect("~/Home/Home");
+                return new EmptyResult();
             }
             else{
                 ViewBag.Msg = "登入失敗";
