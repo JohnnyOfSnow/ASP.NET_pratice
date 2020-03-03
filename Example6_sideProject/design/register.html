@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>註冊畫面</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <form style="margin-left:10px;" method="" action="">
+    <h1>請輸入使用者資料</h1>
+    <div>
+        <span style="color:red;">文字</span>
+    </div>
+    <div class="form-group">
+        <label for="inputAccount">帳號</label>
+        <input type="text" class="form-control" id="account" name="account" placeholder="輸入帳號" value="222" />
+        <small id="accountHelp" class="form-text text-muted">輸入英數字</small>
+    </div>
+    <div class="form-group">
+        <label for="inputNewPassword">新的密碼</label>
+        <input type="password" class="form-control" id="newPassword" name="password1" placeholder="輸入新密碼" value="2222" />
+        <small id="newPasswordHelp" class="form-text text-muted">輸入英數字</small>
+    </div>
+    <div class="form-group">
+        <label for="inputAgainPassword">再次確認</label>
+        <input type="password" class="form-control" id="againPassword" name="password2" placeholder="密碼再輸入一次" value="2222" />
+        <small id="againPawwordHelp" class="form-text text-muted">輸入英數字</small>
+    </div>
+    <div class="form-group">
+        <label for="address">地址</label>
+        <select id="city" name="city">
+            <option value="">全部</option>
+           
+        </select>
+        <select id="village" name="village">
+                <option value="">請選鄉鎮市</option>
+        </select>
+        <input type="text" class="form-control" id="text-address" name="address" placeholder="請輸入地址" value="45545445454545" />
+    </div>
+    <button type="submit" class="">確定</button>
+    <button type="reset" class="">清除</button>
+    <button type="button" class="" onclick="">登入</button>
+</form>
+</body>
+</html>
+
+
+
+
+
+

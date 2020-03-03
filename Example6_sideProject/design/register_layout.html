@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,500,900&display=swap");
+		*{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		.wrapper{
+			height: 100%;
+		}
+		.main-header{
+			background: #FF7F6B;
+		}
+		.main-header .container{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 1px;
+			margin: auto;
+		}
+		.header-function{
+			padding-right: 20px;
+		}
+
+		.header-function button{
+			width: 80px;
+			height: 40px;
+			border: 1px solid #fff;
+			border-radius: 4px;
+			background-color: #FF7F6B;
+			color: #fff;
+			font-size: 15px;
+			font-weight: 300;
+		}
+
+		.banner{
+			background-color: #C97B6F;
+			height: 100vh;
+		}
+		.banner .container{
+			display: flex;
+		}
+		.banner-txt{
+			font-family: 'Noto Sans TC', sans-serif;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			width: 50%;
+		}
+		.banner-txt h2{
+			width: 50%;
+			color: white;
+			padding-top: 100px;
+			padding-bottom: 20px;
+			font-size: 60px;
+			font-weight: 500;
+			line-height: 1.1;
+
+		}
+		.banner-txt h4{
+			width: 70%;
+			padding-left: 140px;
+			padding-bottom: 100px;
+			color: #fff;
+			font-weight: 300;
+			font-size: 18px;
+		}
+		.banner-form{
+			font-family: 'Noto Sans TC', sans-serif;
+			width: 35%;
+			background-color: #fff;
+			margin: 80px 40px;
+			padding-bottom: 10px;
+			border-radius: 4px;
+		}
+		.form-input{
+			display: flex;
+			flex-direction: column;
+			padding: 20px 20px;
+		}
+		.form-input .form-set{
+			margin: 5px 0;
+			display: flex;
+			flex-direction: column;
+
+		}
+		.form-set label{
+			font-size: 15px;
+		}
+		.form-set input{
+			height: 32px;
+			border: 1px solid #aaa;
+			border-radius: 4px;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<header class="main-header">
+			<div class="container">
+				<div class="header-txt">
+					<h3>2332</h3>
+					<h3>2332</h3>
+					<h3>2332</h3>
+				</div>
+				<form class="header-function">
+					<button type="button" class="" onclick="">登入</button>
+				</form>
+			</div>
+		</header>
+		<div class="banner">
+			<div class="container">
+				<div class="banner-txt">
+					<h2>
+						AQUA MI
+						URUHARUSIA
+					</h2>
+					<h4>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore nisi amet aliquam incidunt repellat esse quasi non necessitatibus eos laborum, eius velit ipsum minus totam culpa. Voluptas, officia dolorum.
+					</h4>
+				</div>
+				<div class="banner-form">
+					<span style="color:red;">文字</span>
+			
+					<form class="form-input" method="" action="">
+						
+							<div class="form-set">
+								<label for="inputAccount">帳號</label>
+							    <input type="text" class="form-control" id="account" name="account" placeholder="輸入帳號" value="222" />
+							
+							</div>
+						    <div class="form-set">
+						    	<label for="inputNewPassword">新的密碼</label>
+							    <input type="password" class="form-control" id="newPassword" name="password1" placeholder="輸入新密碼" value="2222" />
+							    
+						    </div>
+							<div class="form-set">
+						    	<label for="inputAgainPassword">再次確認</label>
+							    <input type="password" class="form-control" id="againPassword" name="password2" placeholder="密碼再輸入一次" value="2222" />
+							    
+						    </div>
+							<div class="form-set">
+						    	<label for="address">地址</label>
+							    <select id="city" name="city">
+							        <option value="">全部</option>
+							       
+							    </select>
+							    <select id="village" name="village">
+							            <option value="">請選鄉鎮市</option>
+							    </select>
+							    <input type="text" class="form-control" id="text-address" name="address" placeholder="請輸入地址" value="45545445454545" />
+						    </div>
+						<button type="submit" class="">確定</button>
+						<button type="reset" class="">清除</button>
+					<form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
