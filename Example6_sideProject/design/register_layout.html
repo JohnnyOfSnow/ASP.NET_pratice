@@ -13,7 +13,7 @@
 			height: 100%;
 		}
 		.main-header{
-			background: #FF7F6B;
+			background: #99233A;
 		}
 		.main-header .container{
 			display: flex;
@@ -22,6 +22,20 @@
 			padding: 1px;
 			margin: auto;
 		}
+		.main-header .header-txt{
+			font-family: 'Noto Sans TC', sans-serif;
+			display: flex;
+			margin: 20px 0px;
+			padding: 0px 50px;
+		}
+
+		.header-txt h3{
+			margin: 0px 20px;
+			color: #fff;
+			font-weight: 300;
+			font-size: 15px;
+		}
+
 		.header-function{
 			padding-right: 20px;
 		}
@@ -31,19 +45,26 @@
 			height: 40px;
 			border: 1px solid #fff;
 			border-radius: 4px;
-			background-color: #FF7F6B;
+			background-color: #99233A;
 			color: #fff;
 			font-size: 15px;
 			font-weight: 300;
 		}
 
+		/* sign in button */
+		.header-function button:nth-child(1){
+			border: none;
+		}
+
 		.banner{
-			background-color: #C97B6F;
+			background-color: #272025;
 			height: 100vh;
 		}
+
 		.banner .container{
 			display: flex;
 		}
+
 		.banner-txt{
 			font-family: 'Noto Sans TC', sans-serif;
 			display: flex;
@@ -52,9 +73,10 @@
 			align-items: center;
 			flex-wrap: wrap;
 			width: 50%;
+
 		}
 		.banner-txt h2{
-			width: 50%;
+			width: 55%;
 			color: white;
 			padding-top: 100px;
 			padding-bottom: 20px;
@@ -65,7 +87,7 @@
 		}
 		.banner-txt h4{
 			width: 70%;
-			padding-left: 140px;
+			padding-left: 100px;
 			padding-bottom: 100px;
 			color: #fff;
 			font-weight: 300;
@@ -73,30 +95,56 @@
 		}
 		.banner-form{
 			font-family: 'Noto Sans TC', sans-serif;
-			width: 35%;
+			width: 30%;
 			background-color: #fff;
-			margin: 80px 40px;
+			margin: 20px 80px;
 			padding-bottom: 10px;
 			border-radius: 4px;
 		}
 		.form-input{
+			
 			display: flex;
 			flex-direction: column;
 			padding: 20px 20px;
 		}
 		.form-input .form-set{
-			margin: 5px 0;
+			margin: 8px 0;
 			display: flex;
 			flex-direction: column;
-
 		}
+		.form-input button{
+			height: 60px;
+			border: 1px solid #fff;
+			border-radius: 4px;
+			text-align: center;
+			font-family: 'Noto Sans TC', sans-serif;
+		}
+		.form-input button[type="submit"]{
+			background-color: #36CD57;
+			color: white;
+			font-size: 18px;
+			font-weight: 500;
+		}
+
+		.form-input button[type="reset"]{
+			background-color: #FF8743;
+			color: white;
+			font-size: 18px;
+			font-weight: 500;
+		}
+
 		.form-set label{
 			font-size: 15px;
 		}
 		.form-set input{
-			height: 32px;
+			height: 40px;
 			border: 1px solid #aaa;
 			border-radius: 4px;
+		}
+
+		.form-set:nth-child(4){
+			display: flex;
+			flex-direction: row;
 		}
 
 
@@ -107,12 +155,14 @@
 		<header class="main-header">
 			<div class="container">
 				<div class="header-txt">
-					<h3>2332</h3>
-					<h3>2332</h3>
-					<h3>2332</h3>
+					<h3>為什麼選擇AQUA</h3>
+					<h3>企業</h3>
+					<h3>探索</h3>
+					<h3>市場價值</h3>
 				</div>
 				<form class="header-function">
 					<button type="button" class="" onclick="">登入</button>
+					<button type="button" class="" onclick="">註冊</button>
 				</form>
 			</div>
 		</header>
@@ -120,11 +170,11 @@
 			<div class="container">
 				<div class="banner-txt">
 					<h2>
-						AQUA MI
-						URUHARUSIA
+						Crazy for
+						AQUA users
 					</h2>
 					<h4>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore nisi amet aliquam incidunt repellat esse quasi non necessitatibus eos laborum, eius velit ipsum minus totam culpa. Voluptas, officia dolorum.
+						針對AQUA用戶，我們量身打造一個讓人生瘋狂的計畫，那是您曾經覺得困難或是沒有時間做的事物，透過專人輔導以及解說之後，就會充滿信心並且願意嘗試。
 					</h4>
 				</div>
 				<div class="banner-form">
@@ -143,10 +193,11 @@
 							    
 						    </div>
 							<div class="form-set">
-						    	<label for="inputAgainPassword">再次確認</label>
+						    	<label for="inputAgainPassword">再輸入一次密碼</label>
 							    <input type="password" class="form-control" id="againPassword" name="password2" placeholder="密碼再輸入一次" value="2222" />
 							    
 						    </div>
+
 							<div class="form-set">
 						    	<label for="address">地址</label>
 							    <select id="city" name="city">
@@ -156,8 +207,11 @@
 							    <select id="village" name="village">
 							            <option value="">請選鄉鎮市</option>
 							    </select>
-							    <input type="text" class="form-control" id="text-address" name="address" placeholder="請輸入地址" value="45545445454545" />
+							    
 						    </div>
+						    <div class="form-set">
+						    	<input type="text" class="form-control" id="text-address" name="address" placeholder="請輸入地址" value="45545445454545" />
+						    </div>	
 						<button type="submit" class="">確定</button>
 						<button type="reset" class="">清除</button>
 					<form>
