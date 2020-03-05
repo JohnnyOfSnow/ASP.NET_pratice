@@ -5,7 +5,7 @@
 ## 練習6: 結合過去所學，把成果展現出來
 ***
 
-![image](https://github.com/JohnnyOfSnow/ASP.NET_pratice/tree/master/Example6_sideProject/image/sideproject_main.jpg)
+![image](https://github.com/JohnnyOfSnow/ASP.NET_pratice/blob/master/Example6_sideProject/image/sideproject_main.jpg)
 
 * **所學內容**
   * ASP.net MVC
