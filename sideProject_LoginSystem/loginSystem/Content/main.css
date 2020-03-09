@@ -1,0 +1,153 @@
+﻿@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,500,900&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.wrapper {
+    height: 100%;
+}
+
+.main-header {
+    background: #99233A;
+}
+
+    .main-header .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1px;
+        margin: auto;
+    }
+
+    .main-header .header-txt {
+        font-family: 'Noto Sans TC', sans-serif;
+        display: flex;
+        margin: 20px 0px;
+        padding: 0px 50px;
+    }
+
+.header-txt h3 {
+    margin: 0px 20px;
+    color: #fff;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.header-function {
+    padding-right: 20px;
+}
+
+    .header-function button {
+        width: 80px;
+        height: 40px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        background-color: #99233A;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 300;
+    }
+
+        /* sign in button */
+        .header-function button:nth-child(1) {
+            border: none;
+        }
+
+.banner {
+    background-color: #272025;
+    height: 100vh;
+}
+
+    .banner .container {
+        display: flex;
+    }
+
+.banner-txt {
+    font-family: 'Noto Sans TC', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 50%;
+}
+
+    .banner-txt h2 {
+        width: 55%;
+        color: white;
+        padding-top: 100px;
+        padding-bottom: 20px;
+        font-size: 60px;
+        font-weight: 500;
+        line-height: 1.1;
+    }
+
+    .banner-txt h4 {
+        width: 70%;
+        padding-left: 100px;
+        padding-bottom: 100px;
+        color: #fff;
+        font-weight: 300;
+        font-size: 18px;
+    }
+
+.banner-form {
+    font-family: 'Noto Sans TC', sans-serif;
+    width: 30%;
+    background-color: #fff;
+    margin: 20px 80px;
+    padding-bottom: 10px;
+    border-radius: 4px;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px;
+}
+
+    .form-input .form-set {
+        margin: 8px 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-input button {
+        height: 60px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        text-align: center;
+        font-family: 'Noto Sans TC', sans-serif;
+    }
+
+        .form-input button[type="submit"] {
+            background-color: #36CD57;
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .form-input button[type="reset"] {
+            background-color: #FF8743;
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+.form-set label {
+    font-size: 15px;
+}
+
+.form-set input {
+    height: 40px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+
+.form-set:nth-child(4) {
+    display: flex;
+    flex-direction: row;
+}

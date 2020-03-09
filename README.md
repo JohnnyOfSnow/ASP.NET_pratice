@@ -14,11 +14,15 @@
   * `練習4: 練習C#裡將JSON序列化或反序列化的一些方法` 
 * **[Example 5: Ajax(Asynchronous JavaScript and XML)](https://github.com/JohnnyOfSnow/ASP.NET_pratice/tree/master/Example5_AJAXpratice)**
   * `練習5: 練習用Ajax，回應使用者的操作` 
-* **[Example 6: side project](https://github.com/JohnnyOfSnow/ASP.NET_pratice/tree/master/Example6_sideProject)**
-  * `練習6: 結合過去所學，把成果展現出來`   
 * **[SQL](https://github.com/JohnnyOfSnow/ASP.NET_pratice/tree/master/SQL)**
   * `SQL: 練習用命令提示字元，熟悉SQL指令` 
 
+***
+## 個人專案
+* **[Side project: A website for register and sign in.](https://github.com/JohnnyOfSnow/ASP.NET_pratice/tree/master/sideProject_LoginSystem)**
+  * `個人專案: 會員註冊與登入網頁`
+* **[Side project: Search contracted pharmacy for mask's storage.](https://github.com/JohnnyOfSnow/ASP.NET_pratice/tree/master/sideProject_Mask)**
+  * `個人專案: 地區特約藥局口罩庫存查詢網頁`  
 
 ***
 ## 學習環境與工具

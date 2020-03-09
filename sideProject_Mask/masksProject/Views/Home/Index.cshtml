@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+
+    var cityList = ViewBag.CityList;
+    var villageList = ViewBag.VillageList;
+}
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+<head>
+    <link rel="stylesheet" media="all" href="~/Content/myStyle.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="userSelect">
+            <div class="title">
+                地區藥局口罩查詢
+            </div>
+            <div class="search">
+                <h2>地區查詢:</h2>
+                <div class="userItem">
+                    <select id="city" name="city">
+                        <option value="">全部</option>
+                        @for (int i = 0; i < cityList.Count; i++)
+                        {
+                            <option value="@cityList[i].CityId">@cityList[i].CityName</option>
+                        }
+                    </select>
+                </div>
+                <div class="userItem">
+                    <select id="village" name="village">
+                        @if (villageList.Count == 0)
+                        {
+                            <option value="">請選鄉鎮市</option>
+                        }
+                        else
+                        {
+                            <option value="">請選擇</option>
+                            for (int i = 0; i < villageList.Count; i++)
+                            {
+                                <option value="@villageList[i].VillageId"> @villageList[i].VillageName</option>
+                            }
+                        }
+
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+           
+        </div>
+    </div>
+</body>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $("#city").change(function () {
+        var value = $("#city").val();
+        console.log(value);
+        $.ajax({
+            type: "Post",
+            url: "../Home/Village?id=" + value,
+            data: '{}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $("#village").empty();
+                if (data == null) {
+                    $("#village").append("<option value=''>請選擇縣市</option>");
+                } else {
+                    var jo = JSON.parse(data);
+                    $("#village").append("<option value=''>請選擇</option>");
+                    for (var i = 0; i < jo.length; i++) {
+                        $("#village").append("<option value='" + jo[i].VillageId + "'>" + jo[i].VillageName + "</option>");
+                    }
+                }
+            },
+            faliure: function (errMsg) {
+                $("#village").empty();
+                $("#village").append("<option value=''>請選擇縣市</option>");
+            }
+        })
+    });
+
+    $("#village").change(function () {
+        var value = $("#village :selected").text();
+        console.log(value);
+        $.ajax({
+            type: "Post",
+            url: "../Home/CountryName?countryName=" + value,
+            data: '{}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $(".container").empty();
+                if (data == null) {
+                    // No pharmacy in your country.
+                } else {
+                    var jo = JSON.parse(data);
+                    for (var i = 0; i < jo.length; i++) {
+                        if (jo[i].mask_adult != 0) {
+                            var txt = "<div class='item1'><div class='txt'><h2>" + jo[i].name + "</h2>" + 
+                         "<p>小孩口罩： " +  jo[i].mask_child + " 個</p>" + "<p>成人口罩： " + jo[i].mask_adult + " 個</p>"+ "<p>藥局地址： " + jo[i].address + " </p>" + "</div ></div >";
+                        } else {
+                            var txt = "<div class='item'><div class='txt'><h2>" + jo[i].name + "</h2>" + 
+                         "<p>小孩口罩： " +  jo[i].mask_child + " 個</p>" + "<p>成人口罩： " + jo[i].mask_adult + " 個</p>"+ "<p>藥局地址： " + jo[i].address + " </p>" + "</div ></div >";
+                        }                 
+                        $(".container").append(txt);
+                    }
+                }
+            },
+            faliure: function (errMsg) {
+                $(".container").empty();
+                
+            }
+        })
+            
+    });
+
+</script>
+
