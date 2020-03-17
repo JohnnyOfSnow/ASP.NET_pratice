@@ -14,6 +14,8 @@
   * `練習4: 練習C#裡將JSON序列化或反序列化的一些方法` 
 * **[Example 5: Ajax(Asynchronous JavaScript and XML)](https://github.com/JohnnyOfSnow/ASP.NET_pratice/tree/master/Example5_AJAXpratice)**
   * `練習5: 練習用Ajax，回應使用者的操作` 
+* **[Example 6: IHttpHandler](https://github.com/JohnnyOfSnow/ASP.NET_pratice/tree/master/Example6_IHttpHandler)**
+  * `練習6: 用自訂的類別實作IHttpHandler`   
 * **[SQL](https://github.com/JohnnyOfSnow/ASP.NET_pratice/tree/master/SQL)**
   * `SQL: 練習用命令提示字元，熟悉SQL指令` 
 
