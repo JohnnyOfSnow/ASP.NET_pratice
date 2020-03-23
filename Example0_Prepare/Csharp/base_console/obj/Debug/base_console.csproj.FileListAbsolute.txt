@@ -1,0 +1,12 @@
+C:\Users\User\Desktop\snow\program_old\aspNet_pratice\Example0_Prepare\Cshop\base_console\bin\Debug\base_console.exe.config
+C:\Users\User\Desktop\snow\program_old\aspNet_pratice\Example0_Prepare\Cshop\base_console\bin\Debug\base_console.exe
+C:\Users\User\Desktop\snow\program_old\aspNet_pratice\Example0_Prepare\Cshop\base_console\bin\Debug\base_console.pdb
+C:\Users\User\Desktop\snow\program_old\aspNet_pratice\Example0_Prepare\Cshop\base_console\obj\Debug\base_console.csprojAssemblyReference.cache
+C:\Users\User\Desktop\snow\program_old\aspNet_pratice\Example0_Prepare\Cshop\base_console\obj\Debug\base_console.exe
+C:\Users\User\Desktop\snow\program_old\aspNet_pratice\Example0_Prepare\Cshop\base_console\obj\Debug\base_console.pdb
+C:\Users\User\Desktop\snow\program_old\aspNet_pratice\Example0_Prepare\Csharp\base_console\bin\Debug\base_console.exe.config
+C:\Users\User\Desktop\snow\program_old\aspNet_pratice\Example0_Prepare\Csharp\base_console\bin\Debug\base_console.exe
+C:\Users\User\Desktop\snow\program_old\aspNet_pratice\Example0_Prepare\Csharp\base_console\bin\Debug\base_console.pdb
+C:\Users\User\Desktop\snow\program_old\aspNet_pratice\Example0_Prepare\Csharp\base_console\obj\Debug\base_console.csprojAssemblyReference.cache
+C:\Users\User\Desktop\snow\program_old\aspNet_pratice\Example0_Prepare\Csharp\base_console\obj\Debug\base_console.exe
+C:\Users\User\Desktop\snow\program_old\aspNet_pratice\Example0_Prepare\Csharp\base_console\obj\Debug\base_console.pdb
