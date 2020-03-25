@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace base_console
 {
     class Program
@@ -11,10 +12,55 @@ namespace base_console
         static void Main(string[] args)
         {
 
-            createNumList();
+            List<int> intList = new List<int> { 5,8,2,10,4,7,25,36,11,111,24,9};
+            mergeSort(intList, 0, intList.Count-1);
+
             Console.ReadKey(); // Avoid console closing when program is running done.
         }
 
+        static void mergeSort(List<int> A, int p, int r)
+        {
+            decimal temp = (p + r) / 2;
+            int q = Decimal.ToInt32(Math.Floor(temp));
+
+            mergeSort(A, p, q);
+            mergeSort(A, q+1, r);
+            merge(A, p, q, r);
+
+        }
+
+        static void merge(List<int> A, int p, int q, int r)
+        {
+          
+           
+
+        }
+        /**
+        static void bubbleSort(List<int> list)
+        {
+            int temp;
+
+            for(int i = 0; i < list.Count; i++)
+            {
+                for(int j = 0; j < list.Count-1; j++)
+                {
+                    if(list[i] < list[j])
+                    {
+                        temp = list[i];
+                        list[i] = list[j];
+                        list[j] = temp;
+                    }
+                }
+            }
+
+            Console.WriteLine("Sorted list is: ");
+            foreach (var sortedList in list)
+            {
+                Console.WriteLine($"{sortedList}");
+            }
+        }*/
+
+        /**
         static void createNumList()
         {
             var fibonacciNumbers = new List<int> { 1, 1 };
@@ -35,7 +81,7 @@ namespace base_console
                 Console.WriteLine($"FibonacciNumber: {fibo}");
             }
 
-        }
+        }*/
 
         /**
         static void createStringList()
@@ -73,7 +119,7 @@ namespace base_console
             }
 
         }*/
-       
+
 
         static void ifTest()
         {
