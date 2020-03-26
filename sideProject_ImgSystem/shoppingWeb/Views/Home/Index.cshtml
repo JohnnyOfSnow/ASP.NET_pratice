@@ -13,9 +13,9 @@
         <div class="col-xs-6">
             <input type="file" name="file0" id="file0" multiple="multiple" />
             <div class="form-group">
-                <label for="inputFileRoute">檔案路徑</label>
-                <input type="text" class="form-control" id="inputFileRoute" name="inputFileRoute" aria-describedby="fileRouteHelp"  value="">
-                <small id="fileRouteHelp" class="form-text text-muted">這是圖片的位置</small>
+                <label for="inputFilePath">檔案路徑</label>
+                <input type="text" class="form-control" id="inputFilePath" name="inputFilePath" aria-describedby="fileRouteHelp"  value="">
+                <small id="filePathHelp" class="form-text text-muted">這是圖片的位置</small>
             </div>
             <div class="form-group">
                 <label for="inputFileName">檔案名</label>
@@ -43,7 +43,7 @@
         var objUrl = getObjectURL(this.files[0]);
         console.log("objUrl = " + objUrl);
         if (objUrl) {
-            $("#inputFileRoute").attr("value", objUrl);
+            $("#inputFilePath").attr("value", objUrl);
             $("#MyImg").attr("src", objUrl);
         }
     });

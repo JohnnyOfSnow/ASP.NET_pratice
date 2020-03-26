@@ -83,3 +83,9 @@ D:\program_old\ASP.NET_pratice\sideProject_ImgSystem\shoppingWeb\obj\Debug\shopp
 D:\program_old\ASP.NET_pratice\sideProject_ImgSystem\shoppingWeb\obj\Debug\shoppingWeb.csproj.CopyComplete
 D:\program_old\ASP.NET_pratice\sideProject_ImgSystem\shoppingWeb\obj\Debug\shoppingWeb.dll
 D:\program_old\ASP.NET_pratice\sideProject_ImgSystem\shoppingWeb\obj\Debug\shoppingWeb.pdb
+D:\program_old\ASP.NET_pratice\sideProject_ImgSystem\shoppingWeb\bin\MySql.Data.dll
+D:\program_old\ASP.NET_pratice\sideProject_ImgSystem\shoppingWeb\bin\Google.Protobuf.dll
+D:\program_old\ASP.NET_pratice\sideProject_ImgSystem\shoppingWeb\bin\BouncyCastle.Crypto.dll
+D:\program_old\ASP.NET_pratice\sideProject_ImgSystem\shoppingWeb\bin\Ubiety.Dns.Core.dll
+D:\program_old\ASP.NET_pratice\sideProject_ImgSystem\shoppingWeb\bin\Renci.SshNet.dll
+D:\program_old\ASP.NET_pratice\sideProject_ImgSystem\shoppingWeb\bin\MySql.Data.xml

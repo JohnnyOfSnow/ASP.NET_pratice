@@ -25,9 +25,12 @@ namespace shoppingWeb.Controllers
         public ActionResult Product(FormCollection post)
         {
             string fname = post["inputFileName"];
-            string froute = post["inputFileRoute"];
+            string fpath = post["inputFilePath"];
             int price = Convert.ToInt32(post["price"]);
-            MyImage img = new MyImage(fname, froute, price);
+            string ftype = "";
+            MyImage img = new MyImage();
+            img.getFileType(fpath);
+
             return View(img);      
         }
     }
